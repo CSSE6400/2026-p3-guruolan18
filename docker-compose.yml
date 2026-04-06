@@ -7,7 +7,7 @@ services:
       POSTGRES_USER: administrator
       POSTGRES_DB: todo
     volumes:
-      - ./data:/var/lib/postgresql
+      - db_data:/var/lib/postgresql
 
   app:
     build: .
@@ -18,3 +18,5 @@ services:
       - "6400:6400"
     depends_on:
       - database
+volumes:
+  db_data:
